@@ -2,14 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>显示所有用户</title>
 </head>
 <body>
     <ul>
-        {foreach $users as $v}
-        <li>{$v['username']}</li>
+        {foreach $users as $user}
+            <li>
+                {$user.username} - {$user.email}
+                <a href="{:url('user/index/edit',['id'=>$user.id])}" >修改</a>
+                <a href="#" >删除</a>
+            </li>
         {/foreach}
-
     </ul>
+
+    <a href="{:url('user/index/add')}">添加用户</a>
 </body>
 </html>
